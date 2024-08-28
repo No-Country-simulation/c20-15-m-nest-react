@@ -17,10 +17,34 @@ let UserService = class UserService {
         this.prisma = prisma;
     }
     create(createUserDto) {
-        return this.prisma.user.findMany({});
+        return this.prisma.user.create({ data: createUserDto });
+    }
+    findByEmail(email) {
+        return this.prisma.user.findFirst({
+            where: { email },
+            select: { password: false },
+        });
     }
     findAll() {
-        return `This action returns all user`;
+        return this.prisma.user.findMany({
+            select: {
+                id: true,
+                name: true,
+                email: true,
+                role: true,
+                createdAt: true,
+                updatedAt: true,
+                account: true,
+                paymentMethods: true,
+                password: false,
+            },
+        });
+    }
+    findOneByEmailWithPassword(email) {
+        return this.prisma.user.findFirst({
+            where: { email },
+            select: { name: true, email: true, password: true, role: true, id: true },
+        });
     }
 };
 exports.UserService = UserService;

@@ -1,17 +1,28 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { UserService } from './user.service';
-import { CreateUserDto } from './dto/create-user.dto';
+import { Controller, Get, Param } from '@nestjs/common';
+import { IsEmail } from 'class-validator';
+import { Auth } from 'src/auth/decorators/auth.decorator';
+import { Role } from 'src/auth/enums/role.enum';
+
+export class FindByUserDto {
+  @IsEmail()
+  email: string;
+}
+
+@ApiTags('user')
+@Auth(Role.ADMIN)
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.userService.create(createUserDto);
-  }
-
-  @Get()
+  @Get('')
   findAll() {
     return this.userService.findAll();
+  }
+
+  @Get(':email')
+  findByEmail(@Param('email') email: string) {
+    return this.userService.findByEmail(email);
   }
 }

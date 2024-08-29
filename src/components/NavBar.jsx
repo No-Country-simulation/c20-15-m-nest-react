@@ -12,8 +12,6 @@ function NavBar() {
 
     return(
 
-
-
         <header>
 
                 <h1>Banca Digital</h1>
@@ -27,7 +25,7 @@ function NavBar() {
                    
                    <a href="/register">Register</a>
 
-                   {isLoggedIn && (<><a href="/historial">Historial de Transacciones</a><a href="/"></a></>)}
+                   {isLoggedIn && (<><a href="/historial">Historial de Transacciones</a><a href="/">Transferencias</a></>)}
 
                 </nav>
 

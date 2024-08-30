@@ -25,23 +25,26 @@ model User {
   role          Role             @default(user)
   createdAt     DateTime         @default(now())
   updatedAt     DateTime         @updatedAt
-  account       Account?         @relation("UserAccount")  
+  accounts      Account[]        @relation("UserAccounts")  
   paymentMethods PaymentMethod[] @relation("UserPaymentMethods")
   @@map("users")
 }
 
 model Account {
   id            String          @id @default(uuid())
-  userId        String          @unique
+  userId        String
   balance       Float
   currency      String
+  cbu           String          @unique
   createdAt     DateTime        @default(now())
   updatedAt     DateTime        @updatedAt
-  user          User            @relation("UserAccount", fields: [userId], references: [id])  
+  user          User            @relation("UserAccounts", fields: [userId], references: [id])  
   transactionsFrom Transaction[] @relation("AccountTransactionsFrom")
   transactionsTo   Transaction[] @relation("AccountTransactionsTo")
   @@map("accounts")
 }
+
+
 
 model Transaction {
   id            String          @id @default(uuid())

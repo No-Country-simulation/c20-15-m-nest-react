@@ -4,6 +4,8 @@ import { Controller, Get, Param } from '@nestjs/common';
 import { IsEmail } from 'class-validator';
 import { Auth } from 'src/auth/decorators/auth.decorator';
 import { Role } from 'src/auth/enums/role.enum';
+import { ActiveUser } from 'src/common/decorators/active-user.decorator';
+import { ActiveUserInterface } from 'src/common/interfaces/active-user.interface';
 
 export class FindByUserDto {
   @IsEmail()
@@ -16,13 +18,15 @@ export class FindByUserDto {
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Get('')
+  @Get('all')
+  @Auth(Role.ADMIN)
   findAll() {
     return this.userService.findAll();
   }
 
-  @Get(':email')
-  findByEmail(@Param('email') email: string) {
-    return this.userService.findByEmail(email);
+  @Get('')
+  @Auth(Role.USER)
+  user(@ActiveUser() user: ActiveUserInterface) {
+    return this.userService.findByEmail(user.email, false);
   }
 }

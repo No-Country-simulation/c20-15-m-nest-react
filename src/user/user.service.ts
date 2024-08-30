@@ -1,18 +1,42 @@
-import { Body, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { PrismaService } from 'src/prisma.service';
+import { generateCBU } from 'src/utils/generate-cbu';
 
 @Injectable()
 export class UserService {
   constructor(private readonly prisma: PrismaService) {}
+
   create(createUserDto: CreateUserDto) {
-    return this.prisma.user.create({ data: createUserDto });
+    const cbu = generateCBU();
+    return this.prisma.user.create({
+      data: {
+        ...createUserDto,
+        accounts: {
+          create: {
+            cbu,
+            balance: 0, // balance inicial
+            currency: 'ARS', // moneda por defecto
+          },
+        },
+      },
+    });
   }
 
-  findByEmail(email: string) {
+  findByEmail(email: string, password: boolean) {
     return this.prisma.user.findFirst({
       where: { email },
-      select: { password: false },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+        createdAt: true,
+        updatedAt: true,
+        accounts: true,
+        paymentMethods: true,
+        password,
+      },
     });
   }
 
@@ -25,7 +49,7 @@ export class UserService {
         role: true,
         createdAt: true,
         updatedAt: true,
-        account: true,
+        accounts: true,
         paymentMethods: true,
         password: false,
       },

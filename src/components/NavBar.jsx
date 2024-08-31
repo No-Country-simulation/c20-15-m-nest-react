@@ -1,33 +1,56 @@
 import React from "react";
-
+import { useState } from "react";
 //
 
 function NavBar() {
+    const [DropDownListActive,setDropDownListActiveState] = useState(false)
+    
+   
+    const Dirs = [
+        {direccion:'/',titulo:'Home',requireLogin:false},
+        {direccion:'login',titulo:'Login',requireLogin:false},
+        {direccion:'register',titulo:'Register',requireLogin:false},
+        {direccion:'historial',titulo:'Historial',requireLogin:true},
+        {direccion:'transferencias',titulo:'Transferencia',requireLogin:true}
+    ]
 
     //const isLoggedIn = props.isAuthenticated;
-    //hasta tener login.
-    const isLoggedIn = false;
+    //reworkear con conexion db
+    const isLoggedIn = true;
 
-    
+    // Dropdown links visible/not
+
+    const openCloseMenu = () => {
+        setDropDownListActiveState(!DropDownListActive);
+        console.log("hi");
+    }
 
     return(
 
         <header>
 
                 <h1>Banca Digital</h1>
+                <div>
+                    <button onClick={openCloseMenu}>Menu</button>
 
-                <nav>
+                    {DropDownListActive && (
+                         <nav>
 
-                   
-                   <a href="/">Home Page</a>
-                 
-                   <a href="/login">Login</a>
-                   
-                   <a href="/register">Register</a>
+                            {
+                                Dirs.filter((dir) => (!dir.requireLogin || isLoggedIn)).map((Dir,index) => (
+                                    <a key={index} href={Dir.direccion}>{Dir.titulo}</a>
+                                ))
+                            }
 
-                   {isLoggedIn && (<><a href="/historial">Historial de Transacciones</a><a href="/">Transferencias</a></>)}
 
-                </nav>
+ 
+                     </nav>
+                    )}
+
+
+
+                </div>
+
 
         </header>
     )

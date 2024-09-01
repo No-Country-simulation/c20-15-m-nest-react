@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import LoginForm from './components/LoginForm'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,8 +11,8 @@ function App() {
     <>
       <div>
         <header>
-          <h1> Banca Digital</h1>
         </header>
+        <LoginForm />
       </div>
     </>
   )

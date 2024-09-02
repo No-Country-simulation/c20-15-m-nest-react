@@ -10,8 +10,16 @@ function App() {
     <>
       <div>
         <header>
-          <h1> Banca Digital</h1>
+          <h1> Banca Online</h1>
         </header>
+          <h2>Hola!Te damos la Bienvenida <br></br> Banca Online</h2>
+          <input type="text" placeholder="Usuario" /><br></br>
+          <input type="text" placeholder="Clave Digital" />
+          <p>▢Guardar usuario y contraseña</p>
+          <button>Ingresar</button>
+          <p>¿ Olvidaste o bloqueaste tu Usuario y/o <br></br>clave digital?</p>
+          <p>Si es la primera vez que ingresas a Banca Online ,<strong>registrate</strong></p>
+        
       </div>
     </>
   )

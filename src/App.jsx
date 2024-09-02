@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import LoginForm from './components/LoginForm'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,6 +11,10 @@ function App() {
     <>
       <div>
         <header>
+
+        </header>
+        <LoginForm />
+
           <h1> Banca Online</h1>
         </header>
           <h2>Hola!Te damos la Bienvenida <br></br> Banca Online</h2>
@@ -19,7 +24,6 @@ function App() {
           <button>Ingresar</button>
           <p>¿ Olvidaste o bloqueaste tu Usuario y/o <br></br>clave digital?</p>
           <p>Si es la primera vez que ingresas a Banca Online ,<strong>registrate</strong></p>
-        
       </div>
     </>
   )

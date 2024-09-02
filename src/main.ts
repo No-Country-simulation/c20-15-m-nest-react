@@ -18,6 +18,7 @@ async function bootstrap() {
     .setTitle('Banca digital')
     .setDescription('Documentacion')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

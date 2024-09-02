@@ -36,6 +36,7 @@ model Account {
   balance       Float
   currency      String
   cbu           String          @unique
+  alias         String          @unique
   createdAt     DateTime        @default(now())
   updatedAt     DateTime        @updatedAt
   user          User            @relation("UserAccounts", fields: [userId], references: [id])  

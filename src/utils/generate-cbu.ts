@@ -1,3 +1,7 @@
 export function generateCBU(): string {
-  return Math.random().toString().slice(2, 22).padEnd(22, '0');
+  let cbu = '';
+  while (cbu.length < 22) {
+    cbu += Math.floor(Math.random() * 10).toString();
+  }
+  return cbu;
 }

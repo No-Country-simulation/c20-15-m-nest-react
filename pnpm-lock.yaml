@@ -50,6 +50,9 @@ importers:
       rxjs:
         specifier: ^7.8.1
         version: 7.8.1
+      unique-names-generator:
+        specifier: ^4.7.1
+        version: 4.7.1
     devDependencies:
       '@nestjs/cli':
         specifier: ^10.0.0
@@ -2824,6 +2827,10 @@ packages:
 
   undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
+
+  unique-names-generator@4.7.1:
+    resolution: {integrity: sha512-lMx9dX+KRmG8sq6gulYYpKWZc9RlGsgBR6aoO8Qsm3qvkSJ+3rAymr+TnV8EDMrIrwuFJ4kruzMWM/OpYzPoow==}
+    engines: {node: '>=8'}
 
   universalify@2.0.1:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
@@ -6110,6 +6117,8 @@ snapshots:
       '@lukeed/csprng': 1.1.0
 
   undici-types@6.19.8: {}
+
+  unique-names-generator@4.7.1: {}
 
   universalify@2.0.1: {}
 

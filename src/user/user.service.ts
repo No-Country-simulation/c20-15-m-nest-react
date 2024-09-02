@@ -2,19 +2,33 @@ import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { PrismaService } from 'src/prisma.service';
 import { generateCBU } from 'src/utils/generate-cbu';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { generateAlias } from 'src/utils/generate-alias';
+
+const selectUser = {
+  id: true,
+  name: true,
+  email: true,
+  role: true,
+  createdAt: true,
+  updatedAt: true,
+  accounts: true,
+  paymentMethods: true,
+  password: false,
+};
 
 @Injectable()
 export class UserService {
   constructor(private readonly prisma: PrismaService) {}
 
   create(createUserDto: CreateUserDto) {
-    const cbu = generateCBU();
     return this.prisma.user.create({
       data: {
         ...createUserDto,
         accounts: {
           create: {
-            cbu,
+            cbu: generateCBU(),
+            alias: generateAlias(),
             balance: 0, // balance inicial
             currency: 'ARS', // moneda por defecto
           },
@@ -22,43 +36,30 @@ export class UserService {
       },
     });
   }
+  update(updateUserDto: UpdateUserDto, id: string) {
+    return this.prisma.user.update({
+      where: { id },
+      data: updateUserDto,
+      select: selectUser,
+    });
+  }
 
   findByEmail(email: string, password: boolean) {
     return this.prisma.user.findFirst({
       where: { email },
-      select: {
-        id: true,
-        name: true,
-        email: true,
-        role: true,
-        createdAt: true,
-        updatedAt: true,
-        accounts: true,
-        paymentMethods: true,
-        password,
-      },
+      select: { ...selectUser, password },
     });
   }
 
   findAll() {
     return this.prisma.user.findMany({
-      select: {
-        id: true,
-        name: true,
-        email: true,
-        role: true,
-        createdAt: true,
-        updatedAt: true,
-        accounts: true,
-        paymentMethods: true,
-        password: false,
-      },
+      select: selectUser,
     });
   }
   findOneByEmailWithPassword(email: string) {
     return this.prisma.user.findFirst({
       where: { email },
-      select: { name: true, email: true, password: true, role: true, id: true },
+      select: { ...selectUser, password: true },
     });
   }
 }

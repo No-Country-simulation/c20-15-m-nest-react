@@ -5,7 +5,7 @@ export class CreateTransactionDto {
   fromAccountId;
 
   @IsString()
-  toAccountCBU: string;
+  toAccountId: string;
 
   @IsNumber()
   amount: number;

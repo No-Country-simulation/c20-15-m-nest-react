@@ -1,22 +1,17 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 import { CreateTransactionDto } from './dto/create-transaction.dto';
-import { AccountService } from 'src/account/account.service';
 
 @Injectable()
 export class TransactionService {
-  constructor(
-    private readonly prisma: PrismaService,
-    private readonly accountService: AccountService,
-  ) {}
+  constructor(private readonly prisma: PrismaService) {}
 
   async createTransaction(createTransactionDto: CreateTransactionDto) {
-    const { fromAccountId, toAccountCBU, amount, currency } =
+    const { fromAccountId, toAccountId, amount, currency } =
       createTransactionDto;
 
-    // TODO:verificar q user y fromAccountId
-    const toAccountId =
-      await this.accountService.findAccountIdByCbu(toAccountCBU);
+    // TODO:verificar user y fromAccountId
+
     // Verificar que las cuentas existen
     const fromAccount = await this.prisma.account.findUnique({
       where: { id: fromAccountId },

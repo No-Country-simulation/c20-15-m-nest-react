@@ -37,7 +37,7 @@ export class AccountController {
   }
 
   @ApiOperation({
-    summary: 'Buscar por alias o CBU',
+    summary: 'Buscar por alias o CBU (USER)',
     description:
       'Este endpoint permite buscar una cuenta utilizando un alias o un CBU.',
   })

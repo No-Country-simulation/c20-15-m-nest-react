@@ -6,6 +6,10 @@ import { CreateTransactionDto } from './dto/create-transaction.dto';
 export class TransactionService {
   constructor(private readonly prisma: PrismaService) {}
 
+  async findAll() {
+    return await this.prisma.transaction.findMany({});
+  }
+
   async createTransaction(createTransactionDto: CreateTransactionDto) {
     const { fromAccountId, toAccountId, amount, currency } =
       createTransactionDto;

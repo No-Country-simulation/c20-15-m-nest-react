@@ -4,7 +4,6 @@ import { CreateAccountDto } from './dto/create-account.dto';
 import { generateCBU } from 'src/utils/generate-cbu';
 import { generateAlias } from 'src/utils/generate-alias';
 
-//TODO:findbyalias
 @Injectable()
 export class AccountService {
   constructor(private readonly prisma: PrismaService) {}
@@ -17,8 +16,13 @@ export class AccountService {
     });
   }
 
-  async findAccountByCbuOrAlias(cbu: string) {
-    const user = await this.prisma.account.findFirst({ where: { cbu } });
-    return user.id;
+  async findByCbuOrAlias(value) {
+    return await this.prisma.account.findFirst({
+      where: { OR: [{ alias: value }, { cbu: value }] },
+    });
+  }
+
+  async findAll() {
+    return await this.prisma.account.findMany({});
   }
 }

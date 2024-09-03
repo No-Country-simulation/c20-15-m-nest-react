@@ -1,4 +1,4 @@
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { UserService } from './user.service';
 import {
   Body,
@@ -26,18 +26,21 @@ export class FindByUserDto {
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  @ApiOperation({ summary: 'Listar usuarios (ADMIN)' })
   @Get('all')
   @Auth(Role.ADMIN)
   findAll() {
     return this.userService.findAll();
   }
 
+  @ApiOperation({ summary: 'Ver usuario (USER)' })
   @Get('')
   @Auth(Role.USER)
   user(@ActiveUser() user: ActiveUserInterface) {
     return this.userService.findByEmail(user.email, false);
   }
 
+  @ApiOperation({ summary: 'Actualizar usuario (ADMIN)' })
   @Post(':id')
   @Auth(Role.ADMIN)
   update(@Body() updateUserDto: UpdateUserDto, @Param('id', ParseUUIDPipe) id) {

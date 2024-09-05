@@ -1,10 +1,22 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
+//import { FaBell } from "react-icons/fa";
+import Notification from "./Notification";
+import './NavBarStyles.css';
+
 //
+
 
 function NavBar() {
     const [DropDownListActive,setDropDownListActiveState] = useState(false)
+
     
+    const authenticateLogin = async () => {
+
+        const data = await axios.post("https://c20-15-m-nest-react.onrender.com/api/auth/login",{email:"admin@gmail.com",password:"mateo123"})
+        console.log(data.Token)
+    }
    
     const Dirs = [
         {direccion:'/',titulo:'Home',requireLogin:false},
@@ -15,7 +27,7 @@ function NavBar() {
     ]
 
     //const isLoggedIn = props.isAuthenticated;
-    //reworkear con conexion db
+    //reworkear con conexion backend
     const isLoggedIn = true;
 
     // Dropdown links visible/not
@@ -28,11 +40,15 @@ function NavBar() {
     return(
 
         <header>
-
+            
+                
                 <h1>Banca Digital</h1>
+                <Notification></Notification>
                 <div>
+                    
                     <button onClick={openCloseMenu}>Menu</button>
-
+                    <button onClick={authenticateLogin}>Authenticate Me</button>
+                    <div className="Dropdown">
                     {DropDownListActive && (
                          <nav>
 
@@ -46,7 +62,7 @@ function NavBar() {
  
                      </nav>
                     )}
-
+                        </div>
 
 
                 </div>

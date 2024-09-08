@@ -9,6 +9,8 @@ import './NavBarStyles.css';
 
 
 function NavBar() {
+
+    
     const [DropDownListActive,setDropDownListActiveState] = useState(false)
 
     
@@ -26,15 +28,14 @@ function NavBar() {
         {direccion:'transferencias',titulo:'Transferencia',requireLogin:true}
     ]
 
-    //const isLoggedIn = props.isAuthenticated;
-    //reworkear con conexion backend
+ 
     const isLoggedIn = true;
 
     // Dropdown links visible/not
 
     const openCloseMenu = () => {
         setDropDownListActiveState(!DropDownListActive);
-        console.log("hi");
+  
     }
 
     return(
@@ -44,11 +45,12 @@ function NavBar() {
                 
                 <h1>Banca Digital</h1>
                 <Notification></Notification>
-                <div>
+
+                <div className="bar">
                     
                     <button onClick={openCloseMenu}>Menu</button>
                     <button onClick={authenticateLogin}>Authenticate Me</button>
-                    <div className="Dropdown">
+                    <div className="DropdownNotifications">
                     {DropDownListActive && (
                          <nav>
 

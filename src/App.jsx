@@ -12,9 +12,15 @@ function App() {
     <>
       <div>
         <header>
+
+          <LoginForm />
+
+          <h1> Banca Online</h1>
         </header>
+
         <LoginForm />
         <RegisterForm />
+
       </div>
     </>
   )

@@ -64,10 +64,5 @@ return(
 </>
 )
 }
-
-
-
-
-
-       
+  
 export default Transferencia;

@@ -5,7 +5,6 @@ import { MdOutlinePayment } from "react-icons/md";
 import { IoHelpCircleOutline } from "react-icons/io5";
 import './Transferencia.css'
 
-
 function Transferencia(){
 
 
@@ -52,7 +51,7 @@ return(
     
 {/* FOOTER FIXED */}
      <section className="footer">
-     <FiHome /><button ><a href="#">Inicio</a> </button>
+     <FiHome /><button ><a href= "">Inicio</a> </button> 
      <TbTransferIn /> <button><a href="#">Transferir</a></button>
      <MdOutlinePayment/><button><a href="#">Pagar</a> </button>
      <IoHelpCircleOutline /><button><a href="#">Ayuda</a></button>

@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
+import Transferencia from './transferencia'
+// import NavBar from './NavBar'
 
 import NavBar from './components/navBar'
 import HomePage from './components/HomePage'
@@ -16,11 +16,17 @@ function App() {
     <>
       <div>
 
+      
+        <div><Transferencia></Transferencia></div>
+        {/* <div><NavBar></NavBar></div> */}
+       
+</div>
+
+
           <NavBar></NavBar>
 
         <header>
 
-          <LoginForm />
 
           <h1> Banca Online</h1>
         </header>
@@ -42,7 +48,7 @@ function App() {
 
   
       
-      
+
     </>
   )
 }

@@ -6,7 +6,7 @@ import Transferencia from './transferencia'
 import NavBar from './components/navBar'
 import HomePage from './components/HomePage'
 import LoginForm from './components/LoginForm'
-import RegisterForm from './components/RegisterForm'
+// import RegisterForm from './components/RegisterForm'
 
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
 
 
         <LoginForm />
-        <RegisterForm />
+        
 
         <h2>Hola!Te damos la Bienvenida <br></br> Banca Online</h2>
         <input type="text" placeholder="Usuario" /><br></br>
@@ -44,7 +44,7 @@ function App() {
         <p>Si es la primera vez que ingresas a Banca Online ,<strong>registrate</strong></p>
 
 
-      </div>
+      
 
   
       

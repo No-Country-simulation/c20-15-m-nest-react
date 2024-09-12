@@ -2,7 +2,8 @@
 
 import './App.css'
 import Transferencia from './transferencia'
-  import { Login } from "./componentes/Login";
+import { Login } from "./components/Login";
+import {Register} from './components/Register'
 // import NavBar from './NavBar'
 
 import NavBar from './components/navBar'
@@ -34,6 +35,12 @@ function App() {
                 </Route> */}
                 <Route path="/transferencia" element={<Transferencia></Transferencia>}>
                     
+                </Route>
+                <Route path="/loginForm" element={<Login></Login>}>
+
+                </Route>
+                <Route path="/registerForm" element={<Register></Register>}>
+
                 </Route>
                 
             </Routes>

@@ -40,19 +40,13 @@ function App() {
                 <Route path="/transferencia" element={<Transferencia></Transferencia>}>
                     
                 </Route>
-                <Route path="/loginForm" element={<Login></Login>}>
+                <Route path="/loginForm" element={<Login></Login>}></Route>
 
-           {/* <NavBar></NavBar>   */}
-
-        {/* <header> */}
-{/*  */}
-{/*  */}
-          {/* <h1> Banca Online</h1> */}
-        {/* </header> */}
+                </Routes>
 
 
-           {/* <LoginForm />    */}
-        
+                </div>
+
         </Router>
     </>
   )

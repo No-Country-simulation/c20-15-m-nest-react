@@ -3,8 +3,11 @@ import NavBar from "./navBar";
 
 function HomePage(props){
     
+    
     const adquirirBalCuentaVigente = () => {
         
+        
+
         let usuario;
         let cuentaVigente = "a";
         let bal = 0;

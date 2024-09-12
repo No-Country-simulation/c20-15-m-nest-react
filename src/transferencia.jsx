@@ -21,38 +21,38 @@ return(
         <div><p><strong>Cuenta</strong><br></br>xxxx</p></div> 
         <div><p><strong>Disponible</strong><br></br>$5676</p></div>
         </section>
-        <select  className="option1">
-        <option value="someOption"> Movimiento</option>
+         <select  className="option1">
+        <option value="someOption"> Movimiento</option> 
         <option value="someOption"> </option>
-      
-        </select>
-        <select>
-        <option value="otherOption">Tarjetas</option> 
-        <option value="otherOption"></option> 
+  
+         </select> 
+         <select> *
+         <option value="otherOption">Tarjetas</option>  
+         <option value="otherOption"></option> 
        
-         </select>
+          </select> 
         
        
 
 
-{/* 
-     wireframe 
-    <div>
-    <h1>Origen y destino</h1>
-    <input type="text" placeholder="Banco Santander"  />
-    <h2>Monto y transferencia </h2>
-    <input type="text" placeholder="$500"  />
-    <input type="text" placeholder="Comentario Opcional"  />
-    <select>
-   
-     </select>
-    <button>Continuar</button>
-    </div> */}
+{/*  */}
+     {/* wireframe  */}
+    {/* <div> */}
+    {/* <h1>Origen y destino</h1> */}
+    {/* <input type="text" placeholder="Banco Santander"  /> */}
+    {/* <h2>Monto y transferencia </h2> */}
+    {/* <input type="text" placeholder="$500"  /> */}
+    {/* <input type="text" placeholder="Comentario Opcional"  /> */}
+    {/* <select> */}
+   {/*  */}
+     {/* </select> */}
+    {/* <button>Continuar</button> */}
+    {/* </div>  */}
     
 {/* FOOTER FIXED */}
      <section className="footer">
      <FiHome /><button ><a href= "">Inicio</a> </button> 
-     <TbTransferIn /> <button><a href="#">Transferir</a></button>
+     <TbTransferIn /> <button><a href="">Transferir</a></button>
      <MdOutlinePayment/><button><a href="#">Pagar</a> </button>
      <IoHelpCircleOutline /><button><a href="#">Ayuda</a></button>
      </section>

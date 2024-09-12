@@ -17,22 +17,22 @@ function App() {
       <div>
 
          
-         <div><Transferencia></Transferencia></div> 
+          <div><Transferencia></Transferencia></div>  
        
        
 </div>
 
 
-          <NavBar></NavBar>
+           {/* <NavBar></NavBar>   */}
 
-        <header>
+        {/* <header> */}
+{/*  */}
+{/*  */}
+          {/* <h1> Banca Online</h1> */}
+        {/* </header> */}
 
 
-          <h1> Banca Online</h1>
-        </header>
-
-
-        <LoginForm />
+           {/* <LoginForm />    */}
         
 
     </>

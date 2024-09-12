@@ -1,6 +1,8 @@
 
+
 import './App.css'
 import Transferencia from './transferencia'
+  import { Login } from "./componentes/Login";
 // import NavBar from './NavBar'
 
 import NavBar from './components/navBar'
@@ -40,6 +42,7 @@ function App() {
         </Router>
     </>
   )
+
 }
 
-export default App
+export default App;

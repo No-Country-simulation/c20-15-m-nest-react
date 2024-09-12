@@ -20,8 +20,7 @@ function App() {
     <Router>
           <div>
 
-         
-          <div><Transferencia></Transferencia></div>  
+      
        
        
 </div>
@@ -37,7 +36,7 @@ function App() {
                 {/* <Route path="/register" element={<RegisterForm></RegisterForm>}>
                    
                 </Route> */}
-                <Route path="/transferencia" element={<Transferencia></Transferencia>}>
+                <Route path="/transferencias"element={<Transferencia></Transferencia>}>
                     
                 </Route>
                 <Route path="/loginForm" element={<Login></Login>}></Route>

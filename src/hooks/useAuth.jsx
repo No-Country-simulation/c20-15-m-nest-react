@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
-const useLogin = () => {
+const useAuth = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -16,7 +16,7 @@ const useLogin = () => {
     setError(null);
     try {
       // Realiza la petición HTTP para autenticar el usuario
-      const response = await Api.post(`/auth/login`, {
+      const response = await Api.post(`/api/auth/login`, {
         email,
         password,
       });
@@ -60,13 +60,40 @@ const useLogin = () => {
       setLoading(false);
     }
   };
+  const register = async(name,email,password) => {
+    setLoading(true);
+    setError(null);
+
+    
+    try{
+        const response = await Api.post(('/api/auth/register',{
+            name,
+            email,
+            password
+        }))
+        console.log(response);
+        
+    }catch(err){
+        setError(err.response?.data?.message || "Error en el Registro.");
+        // setRegistered(false);
+        console.log(err);
+    }
+    finally{
+        setLoading(false);
+    }
+
+
+
+    
+    
+};
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       getUser(); // Verifica el token y obtiene el usuario si es válido
     }
   }, []);
-  return { login, getUser, loading, error, isAuthenticated, user };
+  return { login, getUser, loading, error, isAuthenticated, user,register };
 };
 
-export default useLogin;
+export default useAuth;

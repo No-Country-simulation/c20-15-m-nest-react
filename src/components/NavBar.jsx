@@ -22,10 +22,10 @@ function NavBar() {
    
     const Dirs = [
         {direccion:'/',titulo:'Home',requireLogin:false},
-        {direccion:'login',titulo:'Login',requireLogin:false},
-        {direccion:'register',titulo:'Register',requireLogin:false},
-        {direccion:'historial',titulo:'Historial',requireLogin:true},
-        {direccion:'transferencias',titulo:'Transferencia',requireLogin:true}
+        {direccion:'/login',titulo:'Login',requireLogin:false},
+        {direccion:'/register',titulo:'Register',requireLogin:false},
+        // {direccion:'/historial',titulo:'Historial',requireLogin:true},
+        {direccion:'/transferencia',titulo:'Transferencia',requireLogin:true}
     ]
 
  
@@ -49,7 +49,7 @@ function NavBar() {
                 <div className="bar">
                     
                     <button onClick={openCloseMenu}>Menu</button>
-                    <button onClick={authenticateLogin}>Authenticate Me</button>
+                    {/* <button onClick={authenticateLogin}>Authenticate Me</button> */}
                     <div className="DropdownNotifications">
                     {DropDownListActive && (
                          <nav>

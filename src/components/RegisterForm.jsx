@@ -13,6 +13,7 @@ import {
     from 'mdb-react-ui-kit';
 
 function RegisterForm() {
+    
     return (
         <MDBContainer fluid>
 

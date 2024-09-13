@@ -1,7 +1,7 @@
-import useLogin from "../hooks/useAuth";
+import useAuth from "../hooks/useAuth";
 
 export const Login = () => {
-  const { login, loading, error, isAuthenticated, user } = useLogin();
+  const { login, loading, error, isAuthenticated, user } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();

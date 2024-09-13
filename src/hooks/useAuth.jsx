@@ -8,7 +8,7 @@ const useAuth = () => {
   const [user, setUser] = useState(null); // Nuevo estado para almacenar el usuario
 
   const Api = axios.create({
-    baseURL: `${import.meta.env.VITE_PUBLIC_DATABASE_URL}/`,
+    baseURL: `${import.meta.env.VITE_PUBLIC_DATABASE_URL}/api`,
   });
 
   const login = async (email, password) => {
@@ -16,7 +16,7 @@ const useAuth = () => {
     setError(null);
     try {
       // Realiza la petición HTTP para autenticar el usuario
-      const response = await Api.post(`/api/auth/login`, {
+      const response = await Api.post(`/auth/login`, {
         email,
         password,
       });
@@ -60,40 +60,29 @@ const useAuth = () => {
       setLoading(false);
     }
   };
-  const register = async(name,email,password) => {
+  const register = async ({ name, email, password }) => {
     setLoading(true);
     setError(null);
 
-    
-    try{
-        const response = await Api.post(('/api/auth/register',{
-            name,
-            email,
-            password
-        }))
-        console.log(response);
-        
-    }catch(err){
-        setError(err.response?.data?.message || "Error en el Registro.");
-        // setRegistered(false);
-        console.log(err);
+    try {
+      const response = await Api.post("/auth/register", {
+        name,
+        email,
+        password,
+      });
+    } catch (err) {
+      setError(err.response?.data?.message || "Error en el Registro.");
+    } finally {
+      setLoading(false);
     }
-    finally{
-        setLoading(false);
-    }
-
-
-
-    
-    
-};
+  };
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       getUser(); // Verifica el token y obtiene el usuario si es válido
     }
   }, []);
-  return { login, getUser, loading, error, isAuthenticated, user,register };
+  return { login, getUser, loading, error, isAuthenticated, user, register };
 };
 
 export default useAuth;

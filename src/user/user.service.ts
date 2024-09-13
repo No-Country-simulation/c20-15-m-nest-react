@@ -44,11 +44,15 @@ export class UserService {
     });
   }
 
-  findByEmail(email: string, password: boolean) {
-    return this.prisma.user.findFirst({
-      where: { email },
-      select: { ...selectUser, password },
-    });
+  async findByEmail(email: string, password: boolean) {
+    try {
+      return await this.prisma.user.findFirst({
+        where: { email },
+        select: { ...selectUser, password },
+      });
+    } catch (error) {
+      return null;
+    }
   }
 
   findAll() {

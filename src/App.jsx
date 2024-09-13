@@ -19,7 +19,10 @@ function App() {
     <Router>
           <div>
 
-          </div>
+      
+       
+       
+</div>
 
           <div className="content">
             <Routes>
@@ -32,19 +35,16 @@ function App() {
                 {/* <Route path="/register" element={<RegisterForm></RegisterForm>}>
                    
                 </Route> */}
-                <Route path="/transferencia" element={<Transferencia></Transferencia>}>
+                <Route path="/transferencias"element={<Transferencia></Transferencia>}>
                     
                 </Route>
-                <Route path="/loginForm" element={<Login></Login>}>
+                <Route path="/loginForm" element={<Login></Login>}></Route>
 
-                </Route>
-                <Route path="/registerForm" element={<Register></Register>}>
+                </Routes>
 
-                </Route>
-                
-            </Routes>
-          </div>
-        
+
+                </div>
+
         </Router>
     </>
   )

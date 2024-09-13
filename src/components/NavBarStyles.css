@@ -1,7 +1,11 @@
+
+
 .bar {
-    background-color: green;
+    background-color: #09B96D;
     position:fixed;
     top:0px;
+    
+   
 }
 .DropdownNotifications {
     max-height:200vh;

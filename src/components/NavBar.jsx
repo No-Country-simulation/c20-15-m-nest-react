@@ -4,6 +4,7 @@ import axios from "axios";
 //import { FaBell } from "react-icons/fa";
 import Notification from "./Notification";
 import './NavBarStyles.css';
+import { IoMdMenu } from "react-icons/io";
 
 //
 
@@ -48,8 +49,8 @@ function NavBar() {
 
                 <div className="bar">
                     
-                    <button onClick={openCloseMenu}>Menu</button>
-                    {/* <button onClick={authenticateLogin}>Authenticate Me</button> */}
+                    <button onClick={openCloseMenu}><IoMdMenu /></button>
+                    <button onClick={authenticateLogin}>Authenticate Me</button>
                     <div className="DropdownNotifications">
                     {DropDownListActive && (
                          <nav>

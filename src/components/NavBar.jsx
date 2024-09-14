@@ -4,6 +4,7 @@ import axios from "axios";
 //import { FaBell } from "react-icons/fa";
 import Notification from "./Notification";
 import { IoMdMenu } from "react-icons/io";
+import { PiBankBold } from "react-icons/pi";
 
 //
 
@@ -22,10 +23,10 @@ function NavBar() {
    
     const Dirs = [
         {direccion:'/',titulo:'Home',requireLogin:false},
-        {direccion:'login',titulo:'Login',requireLogin:false},
-        {direccion:'register',titulo:'Register',requireLogin:false},
-        {direccion:'historial',titulo:'Historial',requireLogin:true},
-        {direccion:'transferencias',titulo:'Transferencia',requireLogin:true}
+        {direccion:'/login',titulo:'Login',requireLogin:false},
+        {direccion:'/register',titulo:'Register',requireLogin:false},
+        // {direccion:'/historial',titulo:'Historial',requireLogin:true},
+        {direccion:'/transferencia',titulo:'Transferencia',requireLogin:true}
     ]
 
  
@@ -42,14 +43,17 @@ function NavBar() {
 
         <header>
             
-                
-                <h1>Banca Digital</h1>
-                <Notification></Notification>
+          
+             
+            {/* <Notification></Notification> */}
+              
 
                 <div className="bar">
-                    
-                    <button onClick={openCloseMenu}><IoMdMenu /></button>
-                    <button onClick={authenticateLogin}>Authenticate Me</button>
+
+                    <PiBankBold />
+                    <h1>eBanca</h1>
+                    <button className="menu" onClick={openCloseMenu}><IoMdMenu /></button>
+                    <button className="button1" onClick={authenticateLogin}>Ingresar</button>
                     <div className="DropdownNotifications">
                     {DropDownListActive && (
                          <nav>

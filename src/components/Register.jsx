@@ -1,13 +1,13 @@
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import useRegister from "../hooks/useRegister";
+import { useEffect } from "react";
 
 export const Register = () => {
-  const { isAuthenticated, user, register, loading, error } = useAuth();
-  // const { register,loading,error } = useRegister();
+  const { register, loading, error, isAuthenticated, user } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(e.target);
     const email = e.target.email.value;
     const password = e.target.password.value;
     const name = e.target.name.value;
@@ -15,39 +15,37 @@ export const Register = () => {
     await register({ email, password, name });
   };
 
+  useEffect(() => {
+    if (user && isAuthenticated) {
+      navigate("/");
+    }
+  }, [user, navigate, isAuthenticated]);
+
   return (
-    <div>
-      {isAuthenticated && user ? (
-        <p>Bienvenido, {user.name}</p>
-      ) : (
-        //hacer un redirect a homepage
+    <>
+      <h2>Register</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Name:</label>
+          <input name="name" type="text" required />
+        </div>
 
-        <>
-          <h2>Register</h2>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>Name:</label>
-              <input name="name" type="text" required />
-            </div>
+        <div>
+          <label>Email:</label>
+          <input name="email" type="email" required />
+        </div>
 
-            <div>
-              <label>Email:</label>
-              <input name="email" type="email" required />
-            </div>
+        <div>
+          <label>Password:</label>
+          <input name="password" type="password" required />
+        </div>
 
-            <div>
-              <label>Password:</label>
-              <input name="password" type="password" required />
-            </div>
-
-            <button type="submit" disabled={loading}>
-              register
-              {/* {loading ? "Cargando..." : "Bienvenido a Ebanca! " } */}
-            </button>
-            {error && <p style={{ color: "red" }}>{error}</p>}
-          </form>
-        </>
-      )}
-    </div>
+        <button type="submit" disabled={loading}>
+          register
+        </button>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+      </form>
+      <Link to={"/login"}>login</Link>
+    </>
   );
 };

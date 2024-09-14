@@ -1,7 +1,10 @@
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { useEffect } from "react";
 
 export const Login = () => {
   const { login, loading, error, isAuthenticated, user } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -10,29 +13,32 @@ export const Login = () => {
     await login(email, password);
   };
 
+  useEffect(() => {
+    if (user && isAuthenticated) {
+      navigate("/");
+    }
+  }, [isAuthenticated, user, navigate]);
+
   return (
     <div>
-      {isAuthenticated && user ? (
-        <p>Bienvenido, {user.name}</p>
-      ) : (
-        <>
-          <h2>Login</h2>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>Email:</label>
-              <input name="email" type="email" required />
-            </div>
-            <div>
-              <label>Password:</label>
-              <input name="password" type="password" required />
-            </div>
-            <button type="submit" disabled={loading}>
-              {loading ? "Cargando..." : "Login"}
-            </button>
-            {error && <p style={{ color: "red" }}>{error}</p>}
-          </form>
-        </>
-      )}
+      <>
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Email:</label>
+            <input name="email" type="email" required />
+          </div>
+          <div>
+            <label>Password:</label>
+            <input name="password" type="password" required />
+          </div>
+          <button type="submit" disabled={loading}>
+            {loading ? "Cargando..." : "Login"}
+          </button>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+        </form>
+        <Link to={"/register"}>register</Link>
+      </>
     </div>
   );
 };

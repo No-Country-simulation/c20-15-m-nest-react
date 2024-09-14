@@ -4,7 +4,7 @@ import './App.css'
 import Transferencia from './transferencia'
 import { Login } from "./components/Login";
 import {Register} from './components/Register'
-// import NavBar from './NavBar'
+
 
 import NavBar from './components/navBar'
 import HomePage from './components/HomePage'

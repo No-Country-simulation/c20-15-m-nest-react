@@ -1,5 +1,4 @@
 import React from 'react';
-import './RegisterForm.css';
 import {
     MDBBtn,
     MDBContainer,

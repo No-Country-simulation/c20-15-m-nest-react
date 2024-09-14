@@ -1,5 +1,4 @@
 import React from "react";
-import './LoginForm.css';
 import { FaUser, FaLock } from "react-icons/fa";
 
 const LoginForm = () => {
@@ -20,7 +19,7 @@ const LoginForm = () => {
                     <a href="#">Olvido su contraseña</a>
                 </div>
 
-                <button type="submit">Ingresar</button>
+                <button className="ingresando"  type="submit">Ingresar</button>
 
                 <div className="register-link">
                     <p>¿No tiene cuenta? <a href="#">Registrarse</a></p>

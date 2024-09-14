@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FaBell } from "react-icons/fa";
-import './NotificationStyles.css';
 
 function Notification(props){
 

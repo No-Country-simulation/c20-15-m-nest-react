@@ -3,7 +3,6 @@ import { useState } from "react";
 import axios from "axios";
 //import { FaBell } from "react-icons/fa";
 import Notification from "./Notification";
-import './NavBarStyles.css';
 import { IoMdMenu } from "react-icons/io";
 
 //

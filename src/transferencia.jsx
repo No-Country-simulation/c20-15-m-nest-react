@@ -3,7 +3,6 @@ import { FiHome } from "react-icons/fi";
 import { TbTransferIn } from "react-icons/tb";
 import { MdOutlinePayment } from "react-icons/md";
 import { IoHelpCircleOutline } from "react-icons/io5";
-import './Transferencia.css'
 
 function Transferencia(){
 
@@ -11,7 +10,7 @@ function Transferencia(){
 return(
 <>
 <div> 
-  
+     
         <h1>Hola!,{name} </h1>
         <div className="line"></div>
        
@@ -22,11 +21,11 @@ return(
         <div><p><strong>Disponible</strong><br></br>$5676</p></div>
         </section>
          <select  className="option1">
-        <option value="someOption"> Movimiento</option> 
+        <option value="someOption">Movimiento</option> 
         <option value="someOption"> </option>
   
          </select> 
-         <select> *
+         <select  className="option2"> *
          <option value="otherOption">Tarjetas</option>  
          <option value="otherOption"></option> 
        

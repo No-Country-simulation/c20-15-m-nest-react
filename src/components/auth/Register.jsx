@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
 import { useEffect } from "react";
+import { useAuth } from "../../hooks";
 
 export const Register = () => {
   const { register, loading, error, isAuthenticated, user } = useAuth();
@@ -45,7 +45,7 @@ export const Register = () => {
         </button>
         {error && <p style={{ color: "red" }}>{error}</p>}
       </form>
-      <Link to={"/login"}>login</Link>
+      <Link to={"/auth/login"}>login</Link>
     </>
   );
 };

@@ -8,11 +8,15 @@ import { RegisterDto } from './dto/register.dto';
 import * as bcryptjs from 'bcryptjs';
 import { LoginDto } from './dto/login.dto';
 import { JwtService } from '@nestjs/jwt';
+import { generateCBU } from 'src/utils/generate-cbu';
+import { generateAlias } from 'src/utils/generate-alias';
+import { AccountService } from 'src/account/account.service';
 
 @Injectable()
 export class AuthService {
   constructor(
     private readonly usersService: UserService,
+    private readonly accountService: AccountService,
     private readonly jwtService: JwtService,
   ) {}
 
@@ -30,6 +34,7 @@ export class AuthService {
       email,
       password: hashedPassword,
     });
+    // await this.accountService.create({ currency: 'ARS' }, newUser.id);
 
     return {
       message: 'User created successfully',

@@ -33,7 +33,8 @@ export class AccountController {
   @Get('all')
   @Auth(Role.ADMIN)
   findAll() {
-    return generateAlias();
+    return this.accountService.findAll();
+    // return generateAlias();
   }
 
   @ApiOperation({

@@ -5,9 +5,11 @@ import { UserModule } from 'src/user/user.module';
 import { PrismaService } from 'src/prisma.service';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './constants/jwt.constant';
+import { AccountModule } from 'src/account/account.module';
 
 @Module({
   imports: [
+    AccountModule,
     UserModule,
     JwtModule.register({
       global: true,

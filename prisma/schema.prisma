@@ -17,50 +17,62 @@ datasource db {
 enum Role {
   admin
   user
-}
-model User {
-  id            String           @id @default(uuid())
-  name          String
-  email         String           @unique
-  password      String         
-  role          Role             @default(user)
-  createdAt     DateTime         @default(now())
-  updatedAt     DateTime         @updatedAt
-  accounts      Account[]        @relation("UserAccounts")  
-  paymentMethods PaymentMethod[] @relation("UserPaymentMethods")
+}model User {
+  id              String           @id @default(uuid())
+  name            String
+  email           String           @unique
+  password        String         
+  role            Role             @default(user)
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  accounts        Account[]        @relation("UserAccounts")  
+  paymentMethods  PaymentMethod[]  @relation("UserPaymentMethods")
+  transferContacts TransferContact[] @relation("UserTransferContacts")
   @@map("users")
 }
 
 model Account {
-  id            String          @id @default(uuid())
-  userId        String
-  balance       Float
-  currency      String
-  cbu           String          @unique
-  alias         String          @unique
-  createdAt     DateTime        @default(now())
-  updatedAt     DateTime        @updatedAt
-  user          User            @relation("UserAccounts", fields: [userId], references: [id])  
-  transactionsFrom Transaction[] @relation("AccountTransactionsFrom")
-  transactionsTo   Transaction[] @relation("AccountTransactionsTo")
+  id              String          @id @default(uuid())
+  userId          String
+  balance         Float
+  currency        String
+  cbu             String          @unique
+  alias           String          @unique
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  user            User            @relation("UserAccounts", fields: [userId], references: [id])  
+  transactionsFrom Transaction[]  @relation("AccountTransactionsFrom")
+  transactionsTo   Transaction[]  @relation("AccountTransactionsTo")
+  transferContacts TransferContact[] @relation("AccountTransferContacts") // Nueva relación inversa
   @@map("accounts")
 }
 
-
-
 model Transaction {
-  id            String          @id @default(uuid())
-  fromAccountId String
-  toAccountId   String
-  amount        Float
-  currency      String
-  status        String
-  createdAt     DateTime        @default(now())
-  fromAccount   Account         @relation("AccountTransactionsFrom", fields: [fromAccountId], references: [id])
-  toAccount     Account         @relation("AccountTransactionsTo", fields: [toAccountId], references: [id])
+  id              String          @id @default(uuid())
+  fromAccountId   String
+  toAccountId     String
+  amount          Float
+  currency        String
+  status          String
+  createdAt       DateTime        @default(now())
+  fromAccount     Account         @relation("AccountTransactionsFrom", fields: [fromAccountId], references: [id])
+  toAccount       Account         @relation("AccountTransactionsTo", fields: [toAccountId], references: [id])
 
   @@map("transactions")
 }
+
+model TransferContact {
+  id              String     @id @default(uuid())
+  userId          String
+  accountId       String
+  createdAt       DateTime   @default(now())
+
+  user            User       @relation("UserTransferContacts", fields: [userId], references: [id])
+  account         Account    @relation("AccountTransferContacts", fields: [accountId], references: [id])
+
+  @@map("transfer_contacts")
+}
+
 
 model PaymentMethod {
   id            String          @id @default(uuid())

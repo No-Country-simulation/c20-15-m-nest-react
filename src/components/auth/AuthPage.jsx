@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+<link rel="index" href="index.css"></link>
 
 export const AuthPage = () => {
   return (

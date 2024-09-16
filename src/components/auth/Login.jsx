@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useAuth } from "../../hooks";
+import "../../styles/index.css";
 
 export const Login = () => {
   const { login, loading, error, isAuthenticated, user } = useAuth();
@@ -23,14 +24,14 @@ export const Login = () => {
     <div>
       <>
         <h2>Login</h2>
-        <form onSubmit={handleSubmit}>
-          <div>
+        <form className="wrapper" onSubmit={handleSubmit}>
+          <div className="wrapper input-box">
             <label>Email:</label>
-            <input name="email" type="email" required />
+            <input className="input-box input" name="email" type="email" required />
           </div>
           <div>
             <label>Password:</label>
-            <input name="password" type="password" required />
+            <input className="input-box input"name="password" type="password" required />
           </div>
           <button type="submit" disabled={loading}>
             {loading ? "Cargando..." : "Login"}

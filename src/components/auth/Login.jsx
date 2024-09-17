@@ -29,7 +29,7 @@ export const Login = () => {
             <label>Email:</label>
             <input className="input-box input" name="email" type="email" required />
           </div>
-          <div>
+          <div className="wrapper input-box">
             <label>Password:</label>
             <input className="input-box input"name="password" type="password" required />
           </div>

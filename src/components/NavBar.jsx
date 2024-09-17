@@ -1,6 +1,8 @@
 //import React from "react";
 import { useState } from "react";
+import { useAuth } from "../hooks";
 import axios from "axios";
+
 //import { FaBell } from "react-icons/fa";
 
 import { IoMdMenu } from "react-icons/io";
@@ -10,6 +12,8 @@ import { PiBankBold } from "react-icons/pi";
 
 function NavBar() {
   const [DropDownListActive, setDropDownListActiveState] = useState(false);
+  const { isAuthenticated } = useAuth();
+  
 
   const authenticateLogin = async () => {
     const data = await axios.post(
@@ -25,13 +29,13 @@ function NavBar() {
     { direccion: "/auth/register", titulo: "Register", requireLogin: false },
     // {direccion:'/historial',titulo:'Historial',requireLogin:true},
     {
-      direccion: "/transferencia",
+      direccion: "/transfer",
       titulo: "Transferencia",
       requireLogin: true,
     },
   ];
 
-  const isLoggedIn = true;
+
 
   // Dropdown links visible/not
 
@@ -57,7 +61,7 @@ function NavBar() {
         <div className="DropdownNotifications">
           {DropDownListActive && (
             <nav>
-              {Dirs.filter((dir) => !dir.requireLogin || isLoggedIn).map(
+              {Dirs.filter((dir) => !dir.requireLogin || isAuthenticated).map(
                 (Dir, index) => (
                   <a key={index} href={Dir.direccion}>
                     {Dir.titulo}

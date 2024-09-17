@@ -2,7 +2,8 @@ import { Login } from "./components/Login";
 import { Register } from "./components/Register";
 import { HomePage } from "./components/HomePage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import PrivateRoute from "./components/PrivateRoute";
+//import PrivateRoute from "./components/PrivateRoute";
+import "./styles/index.css"
 
 function App() {
   return (
@@ -11,14 +12,16 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={
-              <PrivateRoute>
+             element={
+            //  <PrivateRoute>
                 <HomePage />
-              </PrivateRoute>
+            //  </PrivateRoute>
             }
           />
+          <Route path = "/home" element = {<HomePage/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          
         </Routes>
       </div>
     </Router>

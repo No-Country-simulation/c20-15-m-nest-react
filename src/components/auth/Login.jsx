@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useAuth } from "../../hooks";
 import "../../styles/index.css";
+import NavBar from "../NavBar";
 
 export const Login = () => {
   const { login, loading, error, isAuthenticated, user } = useAuth();
@@ -21,24 +22,33 @@ export const Login = () => {
   }, [isAuthenticated, user, navigate]);
 
   return (
-    <div>
+    <div className="login">
+      <NavBar />
       <>
-        <h2>Login</h2>
-        <form className="wrapper" onSubmit={handleSubmit}>
-          <div className="wrapper input-box">
+        <h2>
+          <strong>Ingresa a tu banca en linea</strong>
+        </h2>
+        <form onSubmit={handleSubmit}>
+          <div>
             <label>Email:</label>
-            <input className="input-box input" name="email" type="email" required />
+            <input name="email" type="email" required />
           </div>
-          <div className="wrapper input-box">
+          <div>
             <label>Password:</label>
-            <input className="input-box input"name="password" type="password" required />
+            <input name="password" type="password" required />
           </div>
-          <button type="submit" disabled={loading}>
+          <button className="button2" type="submit" disabled={loading}>
             {loading ? "Cargando..." : "Login"}
           </button>
           {error && <p style={{ color: "red" }}>{error}</p>}
         </form>
-        <Link to={"/auth/register"}>register</Link>
+        <h3>
+          <strong>Problemas con tu clave?</strong>
+        </h3>
+        <div className="loginline"> </div>
+        <Link className="loginregistrer" to={"/auth/register"}>
+          <h4>Registrate</h4>
+        </Link>
       </>
     </div>
   );

@@ -309,11 +309,28 @@ h1 {
   text-align: start;
 }
 
+.title {
+  margin-top: 10%;
+  width: 162px;
+  height: 29px;
+  left: 16px;
+  top: 194px;
+  
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  
+  color: #004737;
+  
+  }
 .line {
   border-bottom: 1px solid;
   width: 90%;
   margin-left: 5%;
   color: #576a66;
+  margin-top: 3%;
 }
 .cuenta {
   display: flex;
@@ -324,11 +341,13 @@ h1 {
   font-size: 1rem;
   margin-top: 10%;
   padding: 2%;
+  border-radius: 10px 10px 0px 0px;
+  width: 356px;
+height: 72px;
+left: 17px;
+top: 284px;
 }
-
-.footer {
-  margin-top: 70%;
-}
+.cuentap{color:#09b96d}
 
 .option1 {
   display: flex;
@@ -338,6 +357,12 @@ h1 {
   width: 356px;
   border: 1px;
   height: 38px;
+
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0px 0px 10px 10px;
+  margin-top: 5%;
+  color: #004737;
 }
 
 .option2 {
@@ -348,12 +373,32 @@ h1 {
   width: 356px;
   border: 1px;
   height: 38px;
+  color: #004737;
+  
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+margin-top: 10%;
+
 }
 
 .footer {
-  position: absolute;
   width: 389px;
   height: 96px;
   left: 0px;
   top: 669px;
+  margin-top: 20%;
+  color: #004737;
+  font-size: 25px;
+  display: flex;
+  justify-content: space-around;
 }
+.footer p{color: #004737;
+margin-top:80%;
+margin-left:-120%;
+
+}
+.none{text-decoration: none;
+  font-size: 13px;}
+ 
+

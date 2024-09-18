@@ -61,14 +61,16 @@ function NavBar() {
           <IoMdMenu />
         </button>
         {/* <button className="button1" onClick={authenticateLogin}>Ingresar</button> */}
-        <div className="DropdownLinks">
+        <div className="dropdownlinks">
           {DropDownListActive && (
             <nav>
               {Dirs.filter((dir) => !dir.requireLogin || isAuthenticated).map(
                 (Dir, index) => (
                   <a key={index} href={Dir.direccion}>
                     {Dir.titulo}
+                    <br></br>
                   </a>
+                  
                 )
               )}
             </nav>

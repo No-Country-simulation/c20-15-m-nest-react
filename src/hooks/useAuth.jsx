@@ -1,17 +1,13 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Api } from "./Api";
 
-const useAuth = () => {
+export const useAuth = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null); // Nuevo estado para almacenar el usuario
-
-  const Api = axios.create({
-    baseURL: `${import.meta.env.VITE_PUBLIC_DATABASE_URL}/api`,
-  });
 
   const login = async (email, password) => {
     setLoading(true);
@@ -100,5 +96,3 @@ const useAuth = () => {
 
   return { login, getUser, loading, error, isAuthenticated, user, register };
 };
-
-export default useAuth;

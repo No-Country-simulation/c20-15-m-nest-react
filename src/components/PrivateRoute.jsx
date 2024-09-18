@@ -1,19 +1,16 @@
 import { Navigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
-import { PiBankBold } from "react-icons/pi";
+import { useAuth } from "./../hooks";
 
-const PrivateRoute = ({ children }) => {
+export const PrivateRoute = ({ children }) => {
   const { loading, isAuthenticated } = useAuth();
 
   if (loading) {
-    return <i className="loading"><PiBankBold /> </i>;
+    return <p>Loading...</p>;
   }
 
   if (!isAuthenticated) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/auth" />;
   }
 
   return children;
 };
-
-export default PrivateRoute;

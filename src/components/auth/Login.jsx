@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
 import { useEffect } from "react";
-import NavBar from "./NavBar";
-
+import { useAuth } from "../../hooks";
+import "../../styles/index.css";
+import NavBar from "../NavBar";
 
 export const Login = () => {
   const { login, loading, error, isAuthenticated, user } = useAuth();
@@ -23,25 +23,32 @@ export const Login = () => {
 
   return (
     <div className="login">
-        <NavBar></NavBar>
+      <NavBar />
       <>
-        <h2><strong>Ingresa a tu banca en linea</strong></h2>
+        <h2>
+          <strong>Ingresa a tu banca en linea</strong>
+        </h2>
         <form onSubmit={handleSubmit}>
           <div>
-            
-            <input name="email" type="email" required placeholder="Email" />
+            <label>Email:</label>
+            <input name="email" type="email" required />
           </div>
           <div>
-            <input name="password" type="password" required  placeholder="Clave" />
+            <label>Password:</label>
+            <input name="password" type="password" required />
           </div>
           <button className="button2" type="submit" disabled={loading}>
-            {loading ?"Cargando.." : "Ingresar"}
+            {loading ? "Cargando..." : "Login"}
           </button>
           {error && <p style={{ color: "red" }}>{error}</p>}
         </form>
-        <h3><strong>Problemas con tu clave?</strong></h3>
+        <h3>
+          <strong>Problemas con tu clave?</strong>
+        </h3>
         <div className="loginline"> </div>
-        <Link className="loginregistrer"to={"/register"}><h4>Registrate</h4></Link>
+        <Link className="loginregistrer" to={"/auth/register"}>
+          <h4>Registrate</h4>
+        </Link>
       </>
     </div>
   );

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useAuth } from "../hooks";
 import axios from "axios";
+<link rel="index" href="index.css"></link>;
 
 //import { FaBell } from "react-icons/fa";
 
@@ -53,12 +54,14 @@ function NavBar() {
           eBanca
         </h1>
 
-        <div></div>
+        <div>
+          <button className="button1" hidden={!isAuthenticated}>Login</button>
+        </div>
         <button className="menu" onClick={openCloseMenu}>
           <IoMdMenu />
         </button>
         {/* <button className="button1" onClick={authenticateLogin}>Ingresar</button> */}
-        <div className="DropdownNotifications">
+        <div className="DropdownLinks">
           {DropDownListActive && (
             <nav>
               {Dirs.filter((dir) => !dir.requireLogin || isAuthenticated).map(

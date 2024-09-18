@@ -255,6 +255,12 @@ button.menu {
   font-size: 1.5rem;
   padding-top: 5%;
 }
+DropdownLinks{
+  height:70px;
+  overflow-y:scroll;
+  
+
+}
 
 /* NOTIFICATION */
 

@@ -55,7 +55,7 @@ function NavBar() {
         </h1>
 
         <div>
-          <button className="button1" hidden={!isAuthenticated}>Login</button>
+          <button className="button1NavBar" hidden={isAuthenticated}>Login</button>
         </div>
         <button className="menu" onClick={openCloseMenu}>
           <IoMdMenu />

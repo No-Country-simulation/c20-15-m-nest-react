@@ -22,23 +22,17 @@ export const Login = () => {
   }, [isAuthenticated, user, navigate]);
 
   return (
-    <div className="login">
+    <div className=" authPage">
       <NavBar />
-      <>
-        <h2>
-          <strong>Ingresa a tu banca en linea</strong>
-        </h2>
+      <div className="login">
         <form onSubmit={handleSubmit}>
-          <div>
-            <label>Email:</label>
-            <input name="email" type="email" required />
-          </div>
-          <div>
-            <label>Password:</label>
-            <input name="password" type="password" required />
-          </div>
+          <h2>
+            <strong>Ingresa a tu banca en linea</strong>
+          </h2>
+          <input name="email" type="email" placeholder="Rut" required />
+          <input name="password" type="password" placeholder="Clave" required />
           <button className="button2" type="submit" disabled={loading}>
-            {loading ? "Cargando..." : "Login"}
+            {loading ? "Cargando..." : "Ingresar"}
           </button>
           {error && <p style={{ color: "red" }}>{error}</p>}
         </form>
@@ -49,7 +43,7 @@ export const Login = () => {
         <Link className="loginregistrer" to={"/auth/register"}>
           <h4>Registrate</h4>
         </Link>
-      </>
+      </div>
     </div>
   );
 };

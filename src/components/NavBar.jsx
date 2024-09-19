@@ -2,19 +2,18 @@
 import { useState } from "react";
 import { useAuth } from "../hooks";
 import axios from "axios";
-<link rel="index" href="index.css"></link>;
 
 //import { FaBell } from "react-icons/fa";
 
 import { IoMdMenu } from "react-icons/io";
 import { PiBankBold } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 //
 
 function NavBar() {
   const [DropDownListActive, setDropDownListActiveState] = useState(false);
   const { isAuthenticated } = useAuth();
-  
 
   const authenticateLogin = async () => {
     const data = await axios.post(
@@ -36,8 +35,6 @@ function NavBar() {
     },
   ];
 
-
-
   // Dropdown links visible/not
 
   const openCloseMenu = () => {
@@ -49,19 +46,22 @@ function NavBar() {
       {/* <Notification></Notification> */}
 
       <div className="bar">
-        <h1>
+        <div className="logo">
           <PiBankBold />
           eBanca
-        </h1>
-
-        <div>
-          <button className="button1NavBar" hidden={isAuthenticated}>Login</button>
         </div>
-        <button className="menu" onClick={openCloseMenu}>
-          <IoMdMenu />
-        </button>
-        {/* <button className="button1" onClick={authenticateLogin}>Ingresar</button> */}
-        <div className="dropdownlinks">
+        <div className="bardiv">
+          <Link to={"/auth/login"}>
+            <button className="button1" onClick={authenticateLogin}>
+              Ingresar
+            </button>
+          </Link>
+          <button className="menu" onClick={openCloseMenu}>
+            <IoMdMenu />
+          </button>
+        </div>
+
+        {/* <div className="dropdownlinks">
           {DropDownListActive && (
             <nav>
               {Dirs.filter((dir) => !dir.requireLogin || isAuthenticated).map(
@@ -70,12 +70,11 @@ function NavBar() {
                     {Dir.titulo}
                     <br></br>
                   </a>
-                  
                 )
               )}
             </nav>
           )}
-        </div>
+        </div> */}
       </div>
     </header>
   );

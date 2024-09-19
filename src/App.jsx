@@ -15,7 +15,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <div className="content">
+      <div>
         <Routes>
           <Route
             path="/"

@@ -46,12 +46,14 @@ HomePageBody {
   gap: 0px;
   opacity: 0.5;
 }
+
 .homep {
   color: #004737;
   z-index: 1;
   opacity: 3;
   font-size: 14px;
 }
+
 .homediv {
   display: flex;
   background-color: #09b96d;
@@ -59,6 +61,7 @@ HomePageBody {
   gap: 50px;
   padding: 2%;
 }
+
 .homeli {
   /* eBanca */
 
@@ -160,6 +163,7 @@ HomePageBody {
   color: #004737;
   margin-bottom: 5%;
 }
+
 .loginregistrer {
   text-decoration: none;
 }
@@ -222,10 +226,10 @@ HomePageBody {
 
 /* NAR NarBarSyles */
 .button1NavBar {
-  display:flex;
+  display: flex;
   padding: 10px;
-  margin-top:30%;
-  margin-left:250%;
+  margin-top: 30%;
+  margin-left: 250%;
   /* gap: 10px; */
 
   /* width: 114px;
@@ -237,6 +241,7 @@ HomePageBody {
   border: 1px solid #ffffff;
   border-radius: 20px;
 }
+
 .bar {
   display: flex;
   /* justify-content: space-around; */
@@ -245,6 +250,7 @@ HomePageBody {
   left: 0px;
   background-color: #09b96d;
 }
+
 .bar h1 {
   display: flex;
   flex-direction: row;
@@ -259,6 +265,7 @@ HomePageBody {
   color: white;
   background-color: #09b96d;
 }
+
 button.menu {
   color: white;
   margin-left: 150px;
@@ -273,13 +280,12 @@ button.menu {
 
 .dropdownlinks {
 
-  display:flex;
+  display: flex;
   font-size: smaller;
-  max-height:70px;
-  max-width:50px;
-  overflow:scroll
-
-  /* display: flex;
+  max-height: 70px;
+  max-width: 50px;
+  overflow: scroll
+    /* display: flex;
   flex-direction: column;
   align-items: center;
   padding: 113px 8px;
@@ -289,6 +295,7 @@ button.menu {
 
 
 }
+
 .DropdownLinksItem {
   font-size: small;
 }
@@ -302,7 +309,7 @@ body {
   background: white;
 }
 
-/*TRANSFERENCIA*/
+/*TRANSFERENCIA - HOME*/
 
 h1 {
   font-size: medium;
@@ -315,16 +322,17 @@ h1 {
   height: 29px;
   left: 16px;
   top: 194px;
-  
+
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
   line-height: 29px;
-  
+
   color: #004737;
-  
-  }
+
+}
+
 .line {
   border-bottom: 1px solid;
   width: 90%;
@@ -332,6 +340,7 @@ h1 {
   color: #576a66;
   margin-top: 3%;
 }
+
 .cuenta {
   display: flex;
   justify-content: start;
@@ -343,11 +352,14 @@ h1 {
   padding: 2%;
   border-radius: 10px 10px 0px 0px;
   width: 356px;
-height: 72px;
-left: 17px;
-top: 284px;
+  height: 72px;
+  left: 17px;
+  top: 284px;
 }
-.cuentap{color:#09b96d}
+
+.cuentap {
+  color: #09b96d
+}
 
 .option1 {
   display: flex;
@@ -374,11 +386,11 @@ top: 284px;
   border: 1px;
   height: 38px;
   color: #004737;
-  
-background: #FFFFFF;
-border: 1px solid rgba(0, 0, 0, 0.1);
-border-radius: 10px;
-margin-top: 10%;
+
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 10%;
 
 }
 
@@ -393,12 +405,34 @@ margin-top: 10%;
   display: flex;
   justify-content: space-around;
 }
-.footer p{color: #004737;
-margin-top:80%;
-margin-left:-120%;
+
+.footer p {
+  color: #004737;
+  margin-top: 80%;
+  margin-left: -120%;
 
 }
-.none{text-decoration: none;
-  font-size: 13px;}
- 
 
+.none {
+  text-decoration: none;
+  font-size: 13px;
+}
+
+
+/*TRANSFER PAGE*/
+.tcontact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 113px 8px;
+  gap: 20px;
+  isolation: isolate;
+  color: #004737;
+  position: absolute;
+  width: 353px;
+  height: 667px;
+  left: 38px;
+  top: 92px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

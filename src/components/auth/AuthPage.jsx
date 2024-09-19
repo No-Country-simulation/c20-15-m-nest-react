@@ -4,19 +4,16 @@ import NavBar from "../NavBar";
 
 export const AuthPage = () => {
   return (
-    <div>
-      <NavBar></NavBar>
-      <img
-        className="imagen"
-        src="./src/styles/young-couple-looking-cell-phone.jpg"
-        alt="designed by Freepik"
-      />
+    <div className="authPage">
+      <NavBar />
       <div className="homeback">
-        <ul className="homeli">
-          <li>Envía dinero al instante</li>
-          <li>Consulta tu saldo ahora</li>
-          <li>Detalle de tus últimos movimientos</li>
-        </ul>
+        <div className="homeli">
+          <ul>
+            <li>Envía dinero al instante</li>
+            <li>Consulta tu saldo ahora</li>
+            <li>Detalle de tus últimos movimientos</li>
+          </ul>
+        </div>
       </div>
       <div className="homediv">
         <p className="homep">

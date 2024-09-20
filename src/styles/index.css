@@ -466,8 +466,9 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* Añadido para centrar verticalmente */
-  padding: 113px 8px;
+  /* Esto centrará el contenido verticalmente */
+  padding: 20px;
+  /* Ajustado el padding */
   gap: 20px;
   isolation: isolate;
   color: #004737;
@@ -478,123 +479,4 @@ h1 {
   top: 92px;
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.confirmPage {
-  width: 100vw;
-  align-items: center;
-}
-.confirmPage .top {
-  padding-top: 50px;
-  padding-bottom: 30px;
-  /* -bottom: 50px; */
-  color: #004737;
-  font-weight: 700;
-  font-size: 20px;
-  text-align: center;
-  width: 80%;
-  border-bottom: 2px solid rgb(87, 106, 102, 0.4);
-}
-.origin {
-  width: 84%;
-  color: #004737;
-  font-weight: 500;
-}
-
-.origin h1 {
-  color: #ff7d28;
-}
-.destino {
-  width: 85%;
-}
-
-.destino h1 {
-  color: #09b96d;
-  font-size: 20px;
-  font-weight: 700;
-}
-.destino div {
-  display: flex;
-  justify-content: space-between;
-}
-.nose {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.selec {
-  color: #004737;
-  width: 85%;
-}
-.selec h1 {
-  padding-bottom: 10px;
-  font-weight: 700;
-  font-size: 20px;
-}
-.selec div {
-  width: 100%;
-  padding: 5px 20px;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-.selec div:hover {
-  color: white;
-  background-color: #09b96d;
-  border: none;
-}
-.dialog-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(117, 117, 117, 0.9); /* Color con 90% de opacidad */
-  backdrop-filter: blur(8px); /* Aplica desenfoque */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-}
-/* Estilos para el diálogo */
-.custom-dialog {
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  width: 80%;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: none;
-  color: #004737;
-
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
-}
-
-.custom-dialog p {
-  font-size: 18px;
-}
-
-.custom-dialog h1 {
-  padding-bottom: 10px;
-  text-align: center;
-}
-
-/* Estilos para el botón de cerrar */
-.close-dialog-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: transparent;
-  border: none;
-  font-size: 20px;
-  color: #333;
-  cursor: pointer;
-  transition: color 0.3s ease;
 }

@@ -11,6 +11,7 @@ import {
 } from "./components";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { TransferComplete } from "./components/transfer/TransferComplete";
 
 function App() {
   return (
@@ -55,6 +56,14 @@ function App() {
             element={
               <PrivateRoute>
                 <ContactForm />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/transfer/complete"
+            element={
+              <PrivateRoute>
+                <TransferComplete />
               </PrivateRoute>
             }
           />

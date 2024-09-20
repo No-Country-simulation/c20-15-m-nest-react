@@ -1,11 +1,7 @@
-import { Link } from "react-router-dom";
 import { useAuth } from "./../hooks";
-import { FiHome } from "react-icons/fi";
-import { TbTransferIn } from "react-icons/tb";
-import { MdOutlinePayment } from "react-icons/md";
-import { IoHelpCircleOutline } from "react-icons/io5";
 import { VscAccount } from "react-icons/vsc";
 import NavBar from "./NavBar";
+import { Footer } from "./Footer";
 
 export const HomePage = () => {
   const { user } = useAuth();
@@ -43,24 +39,7 @@ export const HomePage = () => {
           <option value="otherOption"></option>
         </select>
       </div>
-      <section className="footer">
-        <Link className="none" to={"/transfer"}>
-          <p>Inicio</p>
-          <FiHome />
-        </Link>
-        <Link className="none" to={"/transfer"}>
-          <p>Transf</p>
-          <TbTransferIn />
-        </Link>
-        <Link className="none" to={"/transfer"}>
-          <p>Pagar</p>
-          <MdOutlinePayment />
-        </Link>
-        <Link className="none" to={"/transfer"}>
-          <p>Ayuda</p>
-          <IoHelpCircleOutline />
-        </Link>
-      </section>
+      <Footer />
     </div>
   );
 };

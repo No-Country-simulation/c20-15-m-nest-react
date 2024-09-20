@@ -1,7 +1,9 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks";
 import { useEffect } from "react";
-
+import { IoIosArrowBack } from "react-icons/io";
+import { IoMdMenu } from "react-icons/io";
+import { FaUserCircle } from "react-icons/fa";
 export const TransferForm = () => {
   const { user, loading } = useAuth();
   const navigate = useNavigate();
@@ -29,18 +31,34 @@ export const TransferForm = () => {
   }
 
   return (
-    <div>
-      <div>
+    <div className="transferForm authPage">
+      <nav className="navTransfer">
+        <IoIosArrowBack />
+        <Link to={"/transfer"}>Transferencias</Link>
+        <IoMdMenu />
+      </nav>
+      <div className="accont">
         <h1>Contacto seleccionado</h1>
-        <h2>{contact.alias}</h2>
-        <p>CBU: {contact.cbu}</p>
+        <div>
+          <FaUserCircle className="userLogo" />
+          <div className="user">
+            <h2>{contact.alias}</h2>
+            <p>{contact.cbu}</p>
+          </div>
+        </div>
       </div>
       <form onSubmit={onsubmit}>
         <h1>Monto disponible</h1>
-        <p>{user?.accounts[0]?.balance ?? "No disponible"}</p>{" "}
-        {/* Manejo de cuentas indefinidas */}
-        <h1>Monto a transferir</h1>
-        <input type="number" name="amount" required />
+        <p className="price">
+          ${user?.accounts[0]?.balance ?? "No disponible"}.00
+        </p>{" "}
+        <h1>Ingresa el monto que quieres transferir</h1>
+        <input
+          type="number"
+          name="amount"
+          placeholder="Monto a transferir "
+          required
+        />
         <button type="submit">Continuar</button>
       </form>
     </div>

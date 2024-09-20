@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTransfer } from "../../hooks";
+import { IoIosArrowBack, IoMdMenu } from "react-icons/io";
 
 export const TransferConfirm = () => {
   const { createTransaction } = useTransfer();
@@ -34,14 +35,15 @@ export const TransferConfirm = () => {
 
   const onClick = async (e) => {
     e.preventDefault();
-    console.log("Transferencia hecha");
     try {
       const res = await createTransaction({
         amount,
         toAccountId: contact.id,
         fromAccountId: user?.accounts[0]?.id,
       });
-      closeDialog(); // Cierra el diálogo tras realizar la transacción
+      console.log(res);
+      closeDialog();
+      navigate("/transfer/complete", { state: { contact, amount, user, res } });
     } catch (error) {
       console.log(error);
     }
@@ -56,6 +58,11 @@ export const TransferConfirm = () => {
 
   return (
     <div className="confirmPage authPage">
+      <nav className="navTransfer">
+        <IoIosArrowBack />
+        <Link to={"/transfer"}>Transferencias</Link>
+        <IoMdMenu />
+      </nav>
       <div className="top">
         <p>Monto a transferir</p>
         <p>${amount}</p>

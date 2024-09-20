@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useTransfer } from "../../hooks";
 import { useNavigate } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa";
+
 export const ContactList = () => {
   const { findTransfer } = useTransfer();
   const [data, setData] = useState([]);
@@ -28,18 +30,17 @@ export const ContactList = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div>
+    <div className="agenda">
       <h2>Agenda</h2>
       {data.length > 0 ? (
         <ul>
           {data.map(({ account }) => (
-            <li key={account.id}>
-              {account.cbu}
-              <br />
-              {/* {account.alias} */}
-              <button onClick={() => handleSelectContact(account)}>
-                transferir al contacto
-              </button>
+            <li key={account.id} onClick={() => handleSelectContact(account)}>
+              <FaUserCircle className="userLogo" />
+              <div>
+                <p className="alias">{account.alias}</p>
+                <p>{account.cbu}</p>
+              </div>
             </li>
           ))}
         </ul>

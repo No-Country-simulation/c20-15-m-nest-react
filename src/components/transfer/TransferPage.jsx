@@ -10,17 +10,33 @@ export const TransferPage = () => {
     <div className="tcontact">
       <Link to={"/transfer/newcontact"}>transferir a nuevo contacto</Link>
       <ContactList />
-      <h1>¿A donde queres transferir?</h1>
-      <div className="terceros"> {/* Opcion: A terceros */}
-        <h3>A terceros </h3>
+      <h1>¿A dónde queres transferir?</h1>
+
+      <div className="options-container">
+        <Link to={{ pathname: "/transfer/form", state: { contactType: "third-party" } }} className="option-button">
+          <div className="terceros">
+            <h3>A terceros</h3>
+            <span className="arrow">></span>
+          </div>
+        </Link>
+
+        <Link to={{ pathname: "/transfer/form", state: { contactType: "own-accounts" } }} className="option-button">
+          <div className="ecuentas">
+            <h3>Entre tus cuentas</h3>
+            <span className="arrow">></span>
+          </div>
+        </Link>
+
+        <Link to={{ pathname: "/transfer/form", state: { contactType: "new-recipient" } }} className="option-button">
+          <div className="ndestinatario">
+            <h3>A un nuevo destinatario</h3>
+            <span className="arrow">></span>
+          </div>
+        </Link>
       </div>
-      <div className="ecuentas"> {/* Opcion: entre tus cuentas */}
-        <h3>Entre tus cuentas</h3>
-      </div>
-      <div className="ndestinatario"> {/* Opcion: A un nuevo destinatario */}
-        <h3>A un nuevo destinatario</h3>
-      </div>
-      <section className="footerTP"> {/*classname modificado para la pagina de transferencia*/}
+
+      {/* Pie de página existente */}
+      <section className="footerTP">
         <Link className="none" to={"/transfer"}>
           <p>Inicio</p>
           <FiHome />

@@ -466,8 +466,9 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* Añadido para centrar verticalmente */
-  padding: 113px 8px;
+  /* Esto centrará el contenido verticalmente */
+  padding: 20px;
+  /* Ajustado el padding */
   gap: 20px;
   isolation: isolate;
   color: #004737;
@@ -480,57 +481,30 @@ h1 {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.terceros {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 16px;
-  width: 332px;
-  height: 38px;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-  z-index: 1;
-}
-
-.ecuentas {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 16px;
-  width: 332px;
-  height: 38px;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  flex: none;
-  order: 2;
-  flex-grow: 0;
-  z-index: 2;
-}
-
+/* Divs que forman el contenido */
+.terceros,
+.ecuentas,
 .ndestinatario {
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 16px;
-  width: 330px;
+  width: 332px;
   height: 38px;
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   flex: none;
-  order: 3;
   flex-grow: 0;
-  z-index: 3;
 }
 
+/* Agrega flex-grow para ocupar el espacio restante antes del footer */
+.spacer {
+  flex-grow: 1;
+}
+
+/* Footer */
 .footerTP {
   height: 96px;
   color: #004737;
